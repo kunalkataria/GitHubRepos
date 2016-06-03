@@ -90,7 +90,8 @@ public class GitApiService extends IntentService {
 //                    }
                     Owner[] repoArray = repoList.toArray(new Owner[repoList.size()]);
                     Bundle b = new Bundle();
-                    b.putSerializable("listRepos", repoArray);
+//                    b.putSerializable("listRepos", repoArray);
+                    b.putParcelableArray("listRepos", repoArray);
                     Intent i = new Intent("gitIntent");
                     i.putExtras(b);
                     LocalBroadcastManager.getInstance(GitApiService.this).sendBroadcast(i);
