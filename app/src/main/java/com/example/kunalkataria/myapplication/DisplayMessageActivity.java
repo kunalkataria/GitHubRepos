@@ -29,7 +29,8 @@ public class DisplayMessageActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             Log.i("details", "message recieved");
             Bundle bundle = intent.getExtras();
-            Owner[] repos = (Owner[]) bundle.getSerializable("listRepos");
+//            Owner[] repos = (Owner[]) bundle.getSerializable("listRepos");
+            Owner[] repos = (Owner[]) bundle.getParcelableArray("listRepos");
             fillList(repos);
         }
     };
