@@ -72,23 +72,23 @@ public class GitApiService extends IntentService {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(okClient)
                 .build();
 
         GitHubService service = retrofit.create(GitHubService.class);
 
-        Call<List<UserRepo>> repos = service.listRepos(username);
+        Call<List<Owner>> repos = service.listRepos(username);
 
         Log.i("info", "api call created");
         try {
-            Response<List<UserRepo>> userRepoResponse = repos.execute();
+            Response<List<Owner>> userRepoResponse = repos.execute();
             if (userRepoResponse.isSuccessful()) {
-                    List<UserRepo> repoList = userRepoResponse.body();
+                    List<Owner> repoList = userRepoResponse.body();
 //                    for (UserRepo ur : repoList) {
 //                        Log.i("REPO FOUND", ur.name);
 //                    }
-                    UserRepo[] repoArray = repoList.toArray(new UserRepo[repoList.size()]);
+                    Owner[] repoArray = repoList.toArray(new Owner[repoList.size()]);
                     Bundle b = new Bundle();
                     b.putSerializable("listRepos", repoArray);
                     Intent i = new Intent("gitIntent");
