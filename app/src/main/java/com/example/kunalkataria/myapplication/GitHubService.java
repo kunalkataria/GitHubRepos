@@ -8,6 +8,6 @@ import retrofit2.http.Header;
 import retrofit2.http.Path;
 
 public interface GitHubService {
-    @GET("/users/{user}/repos")
-    Call<List<UserRepo>> listRepos(@Path("user") String user);
+    @GET("/orgs/{user}/members")
+    Call<List<Owner>> listRepos(@Path("user") String user);
 }
