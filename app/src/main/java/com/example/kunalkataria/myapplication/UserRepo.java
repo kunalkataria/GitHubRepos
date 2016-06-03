@@ -26,12 +26,15 @@ public class UserRepo {
     @Expose
     public String login;
 
-    @SerializedName("avatar_url")
-    @Expose
-    public String avatarUrl;
-
     @SerializedName("gravatar_id")
     @Expose
     public String gravatarId;
 
+    @SerializedName("html_url")
+    @Expose
+    public String htmlUrl;
+
+    @SerializedName("owner")
+    @Expose
+    public Owner owner;
 }
