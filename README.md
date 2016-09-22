@@ -1,0 +1,1 @@
+Simple app that allows the user to search for a GitHub user, and accesses the GitHub API to find that user's followers. The results are displayed in a ListView with recycling, and the profile picture of the followers are displayed as well using a custom adapter.
